@@ -4,11 +4,13 @@ port = 5000
 
 ClientSocket = socket.socket()
 print('Waiting for connection')
+
 try:
     ClientSocket.connect((host, port))
 except socket.error as e:
     print(str(e))
 Response = ClientSocket.recv(2048)
+
 while True:
     Input = input('Your message: ')
     ClientSocket.send(str.encode(Input))
